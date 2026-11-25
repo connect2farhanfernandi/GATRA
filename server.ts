@@ -85,7 +85,7 @@ async function startServer() {
         return res.status(401).json({ error: 'Autentikasi tidak valid atau email belum terverifikasi.' });
       }
 
-      const apiKey = process.env.GEMINI_API_KEY;
+      const apiKey = process.env.GEMINI_API_KEY || '';
       if (!apiKey) {
         return res.status(503).json({
           error: 'Kunci GEMINI_API_KEY belum dikonfigurasi pada panel Settings > Secrets.',
