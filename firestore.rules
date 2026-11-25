@@ -1,0 +1,609 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidBidang(b) {
+      return b in ['pembinaan', 'datun', 'papbb', 'pidum', 'pidsus', 'intelijen'];
+    }
+
+    function isValidUserBidang(b) {
+      return b == '' || isValidBidang(b);
+    }
+
+    function isBootstrappedAdminEmail() {
+      return isVerifiedUser() && request.auth.token.email == 'connectfarhan.workspace@gmail.com';
+    }
+
+    function hasProfile() {
+      return isVerifiedUser() && exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function userProfile() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isActiveUser() {
+      return isBootstrappedAdminEmail() || (
+        hasProfile() && (
+          ('status' in userProfile() && userProfile().status == 'Aktif') ||
+          (!('status' in userProfile()) && isValidBidang(userProfile().bidang))
+        )
+      );
+    }
+
+    function isAdmin() {
+      return isVerifiedUser() && (
+        isBootstrappedAdminEmail() ||
+        (isActiveUser() && userProfile().role == 'admin')
+      );
+    }
+
+    function isStafOf(bidang) {
+      return isActiveUser() && userProfile().role == 'staf' && userProfile().bidang == bidang;
+    }
+
+    function isPimpinan() {
+      return isActiveUser() && userProfile().role == 'pimpinan';
+    }
+
+    function isValidUser(data, userId) {
+      return data.keys().hasAll(['uid', 'email', 'displayName', 'bidang', 'role', 'status', 'lastLogin', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['uid', 'email', 'displayName', 'photoURL', 'bidang', 'role', 'status', 'lastLogin', 'createdAt', 'updatedAt'])
+        && data.uid is string && data.uid == userId && data.uid.size() >= 1 && data.uid.size() <= 128
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 254
+        && data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 150
+        && (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 500))
+        && data.bidang is string && isValidUserBidang(data.bidang)
+        && data.role is string && data.role in ['admin', 'staf', 'pimpinan']
+        && data.status is string && data.status in ['Aktif', 'Pending', 'Diblokir']
+        && data.lastLogin is timestamp
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidJraItem(data) {
+      return data.keys().hasAll(['nomor', 'kodeKlasifikasi', 'uraian', 'retensiAktif', 'retensiInaktif', 'keteranganAkhir', 'bidang', 'createdByUid', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['nomor', 'kodeKlasifikasi', 'uraian', 'retensiAktif', 'retensiInaktif', 'keteranganAkhir', 'bidang', 'createdByUid', 'createdAt', 'updatedAt'])
+        && (data.nomor is int || data.nomor is float) && data.nomor >= 1 && data.nomor <= 999999
+        && data.kodeKlasifikasi is string && data.kodeKlasifikasi.size() >= 1 && data.kodeKlasifikasi.size() <= 300
+        && data.uraian is string && data.uraian.size() >= 1 && data.uraian.size() <= 1000
+        && (data.retensiAktif is int || data.retensiAktif is float) && data.retensiAktif >= 0 && data.retensiAktif <= 100
+        && (data.retensiInaktif is int || data.retensiInaktif is float) && data.retensiInaktif >= 0 && data.retensiInaktif <= 100
+        && data.keteranganAkhir is string && data.keteranganAkhir in ['Musnah', 'Permanen']
+        && data.bidang is string && isValidBidang(data.bidang)
+        && data.createdByUid is string && data.createdByUid.size() >= 1 && data.createdByUid.size() <= 128
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidArchiveItem(data) {
+      return data.keys().hasAll([
+          'nomorBerkas', 'nomorItem', 'kodeKlasifikasi', 'uraian', 'kurunWaktu',
+          'tingkatPerkembangan', 'jumlah', 'filingCabinet', 'laci', 'folder',
+          'klasifikasiKeamanan', 'kondisiFisik', 'penataan', 'retensiAktif',
+          'retensiInaktif', 'keteranganAkhir', 'dasarRetensi', 'tanggalInput',
+          'nomorBoks', 'keterangan', 'bidang', 'createdByUid', 'createdByName',
+          'updatedByUid', 'updatedByName', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'nomorBerkas', 'nomorItem', 'kodeKlasifikasi', 'uraian', 'kurunWaktu',
+          'tingkatPerkembangan', 'jumlah', 'filingCabinet', 'laci', 'folder',
+          'klasifikasiKeamanan', 'kondisiFisik', 'penataan', 'retensiAktif',
+          'retensiInaktif', 'keteranganAkhir', 'dasarRetensi', 'tanggalInput',
+          'tanggalInputISO', 'diinputOleh',
+          'nomorBoks', 'catatanRecordCenter', 'keterangan',
+          'nomorSuratAnri', 'tanggalPersetujuanAnri', 'nomorBaPemusnahan',
+          'tanggalPemusnahan', 'metodePemusnahan',
+          'bidang', 'createdByUid', 'createdByName',
+          'updatedByUid', 'updatedByName', 'createdAt', 'updatedAt'
+        ])
+        && data.nomorBerkas is string && data.nomorBerkas.size() <= 60
+        && data.nomorItem is string && data.nomorItem.size() <= 60
+        && data.kodeKlasifikasi is string && data.kodeKlasifikasi.size() <= 300
+        && data.uraian is string && data.uraian.size() >= 1 && data.uraian.size() <= 2000
+        && (data.kurunWaktu is int || data.kurunWaktu is float) && data.kurunWaktu >= 1945 && data.kurunWaktu <= 2100
+        && data.tingkatPerkembangan is string && data.tingkatPerkembangan in ['Asli', 'Fotokopi', 'Salinan', 'Tembusan']
+        && data.jumlah is string && data.jumlah.size() >= 1 && data.jumlah.size() <= 100
+        && data.filingCabinet is string && data.filingCabinet.size() <= 60
+        && data.laci is string && data.laci.size() <= 60
+        && data.folder is string && data.folder.size() <= 60
+        && data.klasifikasiKeamanan is string && data.klasifikasiKeamanan in ['Biasa/Terbuka', 'Biasa', 'Terbatas', 'Rahasia', 'Sangat Rahasia']
+        && data.kondisiFisik is string && data.kondisiFisik in ['Baik', 'Rusak Ringan', 'Rusak Berat', 'Berjamur']
+        && data.penataan is string && data.penataan in ['Bundel', 'Jilid', 'Dalam Folder', 'Diikat', 'Dalam Map', 'Boks']
+        && (data.retensiAktif is int || data.retensiAktif is float) && data.retensiAktif >= 0 && data.retensiAktif <= 100
+        && (data.retensiInaktif is int || data.retensiInaktif is float) && data.retensiInaktif >= 0 && data.retensiInaktif <= 100
+        && data.keteranganAkhir is string && data.keteranganAkhir in ['Musnah', 'Permanen']
+        && data.dasarRetensi is string && data.dasarRetensi.size() <= 300
+        && data.tanggalInput is string && data.tanggalInput.size() >= 1 && data.tanggalInput.size() <= 60
+        && (!('tanggalInputISO' in data) || (data.tanggalInputISO is string && data.tanggalInputISO.matches('^\\d{4}-\\d{2}-\\d{2}$')))
+        && (!('diinputOleh' in data) || (data.diinputOleh is string && data.diinputOleh.size() >= 1 && data.diinputOleh.size() <= 200))
+        && data.nomorBoks is string && data.nomorBoks.size() <= 60
+        && (!('catatanRecordCenter' in data) || (data.catatanRecordCenter is string && data.catatanRecordCenter.size() <= 1000))
+        && data.keterangan is string && data.keterangan.size() <= 1000
+        && (!('nomorSuratAnri' in data) || (data.nomorSuratAnri is string && data.nomorSuratAnri.size() <= 120))
+        && (!('tanggalPersetujuanAnri' in data) || (data.tanggalPersetujuanAnri is string && data.tanggalPersetujuanAnri.size() <= 30))
+        && (!('nomorBaPemusnahan' in data) || (data.nomorBaPemusnahan is string && data.nomorBaPemusnahan.size() <= 120))
+        && (!('tanggalPemusnahan' in data) || (data.tanggalPemusnahan is string && data.tanggalPemusnahan.size() <= 30))
+        && (!('metodePemusnahan' in data) || (data.metodePemusnahan is string && data.metodePemusnahan in ['Peleburan / Pulping', 'Pencacahan', 'Pembakaran', 'Lainnya']))
+        && data.bidang is string && isValidBidang(data.bidang)
+        && data.createdByUid is string && data.createdByUid.size() >= 1 && data.createdByUid.size() <= 128
+        && data.createdByName is string && data.createdByName.size() >= 1 && data.createdByName.size() <= 150
+        && data.updatedByUid is string && data.updatedByUid == request.auth.uid && data.updatedByUid.size() <= 128
+        && data.updatedByName is string && data.updatedByName.size() >= 1 && data.updatedByName.size() <= 150
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidLoanItem(data) {
+      return data.keys().hasAll(['nomor', 'tanggalPinjam', 'kodeKlasifikasi', 'uraianBerkas', 'namaPeminjam', 'bidang', 'targetKembali', 'realisasiKembali', 'keterangan', 'createdByUid', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['nomor', 'tanggalPinjam', 'kodeKlasifikasi', 'uraianBerkas', 'namaPeminjam', 'bidang', 'targetKembali', 'realisasiKembali', 'keterangan', 'createdByUid', 'createdAt', 'updatedAt'])
+        && (data.nomor is int || data.nomor is float) && data.nomor >= 1 && data.nomor <= 999999
+        && data.tanggalPinjam is string && data.tanggalPinjam.size() >= 8 && data.tanggalPinjam.size() <= 30
+        && data.kodeKlasifikasi is string && data.kodeKlasifikasi.size() >= 1 && data.kodeKlasifikasi.size() <= 300
+        && data.uraianBerkas is string && data.uraianBerkas.size() >= 1 && data.uraianBerkas.size() <= 1000
+        && data.namaPeminjam is string && data.namaPeminjam.size() >= 1 && data.namaPeminjam.size() <= 150
+        && data.bidang is string && isValidBidang(data.bidang)
+        && data.targetKembali is string && data.targetKembali.size() >= 8 && data.targetKembali.size() <= 30
+        && data.realisasiKembali is string && data.realisasiKembali.size() <= 30
+        && data.keterangan is string && data.keterangan.size() <= 1000
+        && data.createdByUid is string && data.createdByUid.size() >= 1 && data.createdByUid.size() <= 128
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidLibraryItem(data) {
+      return data.keys().hasAll(['judul', 'kategori', 'deskripsi', 'url', 'createdByUid', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['judul', 'kategori', 'deskripsi', 'url', 'createdByUid', 'createdAt', 'updatedAt'])
+        && data.judul is string && data.judul.size() >= 1 && data.judul.size() <= 200
+        && data.kategori is string && data.kategori in ['Pedoman Klasifikasi Arsip', 'JRA', 'SOP Kearsipan', 'E-Book/Modul']
+        && data.deskripsi is string && data.deskripsi.size() <= 1000
+        && data.url is string && data.url.size() >= 8 && data.url.size() <= 1000 && data.url.matches('^https?://.*$')
+        && data.createdByUid is string && data.createdByUid.size() >= 1 && data.createdByUid.size() <= 128
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidVitalArchiveItem(data) {
+      return data.keys().hasAll([
+          'nomor', 'bidang', 'uraian', 'kurunWaktu',
+          'mediaSimpan', 'jumlah', 'jangkaSimpan', 'metodePerlindungan', 'lokasiSimpan',
+          'keterangan',
+          'createdByUid', 'createdByName', 'updatedByUid', 'updatedByName',
+          'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'nomor', 'bidang', 'kodeKlasifikasi', 'uraian', 'kurunWaktu',
+          'mediaSimpan', 'jumlah', 'jangkaSimpan', 'metodePerlindungan', 'lokasiSimpan',
+          'tingkatKerawanan', 'tautanBackup', 'keterangan',
+          'createdByUid', 'createdByName', 'updatedByUid', 'updatedByName',
+          'createdAt', 'updatedAt'
+        ])
+        && (data.nomor is int || data.nomor is float) && data.nomor >= 1 && data.nomor <= 999999
+        && data.bidang is string && isValidBidang(data.bidang)
+        && (!('kodeKlasifikasi' in data) || (data.kodeKlasifikasi is string && data.kodeKlasifikasi.size() <= 300))
+        && data.uraian is string && data.uraian.size() >= 1 && data.uraian.size() <= 2000
+        && (data.kurunWaktu is int || data.kurunWaktu is float) && data.kurunWaktu >= 1945 && data.kurunWaktu <= 2100
+        && data.mediaSimpan is string && data.mediaSimpan.size() >= 1 && data.mediaSimpan.size() <= 100
+        && data.jumlah is string && data.jumlah.size() >= 1 && data.jumlah.size() <= 100
+        && data.jangkaSimpan is string && data.jangkaSimpan.size() >= 1 && data.jangkaSimpan.size() <= 100
+        && data.metodePerlindungan is string && data.metodePerlindungan.size() >= 1 && data.metodePerlindungan.size() <= 1000
+        && data.lokasiSimpan is string && data.lokasiSimpan.size() >= 1 && data.lokasiSimpan.size() <= 200
+        && (!('tingkatKerawanan' in data) || (data.tingkatKerawanan is string && data.tingkatKerawanan in ['Sangat Vital', 'Vital', '']))
+        && (!('tautanBackup' in data) || (data.tautanBackup is string && data.tautanBackup.size() <= 1000 && (data.tautanBackup == '' || data.tautanBackup.matches('^https?://.*$'))))
+        && data.keterangan is string && data.keterangan.size() <= 1000
+        && data.createdByUid is string && data.createdByUid.size() >= 1 && data.createdByUid.size() <= 128
+        && data.createdByName is string && data.createdByName.size() >= 1 && data.createdByName.size() <= 150
+        && data.updatedByUid is string && data.updatedByUid == request.auth.uid && data.updatedByUid.size() <= 128
+        && data.updatedByName is string && data.updatedByName.size() >= 1 && data.updatedByName.size() <= 150
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidDokumenKearsipan(data) {
+      return data.keys().hasAll([
+          'judul', 'kategori', 'nomorSurat', 'tanggalDokumen',
+          'bidangTerkait', 'tipeLampiran',
+          'createdByUid', 'createdByName', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'judul', 'kategori', 'nomorSurat', 'tanggalDokumen',
+          'bidangTerkait', 'tipeLampiran',
+          'urlGoogleDrive', 'fileName', 'fileMimeType', 'fileSize', 'fileBase64',
+          'createdByUid', 'createdByName', 'createdAt', 'updatedAt'
+        ])
+        && data.judul is string && data.judul.size() >= 1 && data.judul.size() <= 250
+        && data.kategori is string && data.kategori in [
+          'BA Pemindahan Arsip',
+          'BA & Laporan Pemusnahan Arsip',
+          'Surat Persetujuan ANRI',
+          'BA Penyerahan Arsip Statis',
+          'Daftar Arsip Disahkan',
+          'SK / Laporan Kearsipan Lainnya'
+        ]
+        && data.nomorSurat is string && data.nomorSurat.size() >= 1 && data.nomorSurat.size() <= 120
+        && data.tanggalDokumen is string && data.tanggalDokumen.size() >= 8 && data.tanggalDokumen.size() <= 30
+        && data.bidangTerkait is string && (isValidBidang(data.bidangTerkait) || data.bidangTerkait == 'lintas_bidang')
+        && data.tipeLampiran is string && data.tipeLampiran in ['gdrive', 'upload']
+        && (
+          (data.tipeLampiran == 'gdrive'
+            && 'urlGoogleDrive' in data
+            && data.urlGoogleDrive is string
+            && data.urlGoogleDrive.size() >= 8
+            && data.urlGoogleDrive.size() <= 1000
+            && data.urlGoogleDrive.matches('^https?://.*$')
+            && !('fileName' in data)
+            && !('fileMimeType' in data)
+            && !('fileSize' in data)
+            && !('fileBase64' in data)
+          ) ||
+          (data.tipeLampiran == 'upload'
+            && 'fileName' in data && data.fileName is string && data.fileName.size() >= 1 && data.fileName.size() <= 255
+            && 'fileMimeType' in data && data.fileMimeType is string && data.fileMimeType.size() >= 1 && data.fileMimeType.size() <= 150
+            && 'fileSize' in data && (data.fileSize is int || data.fileSize is float) && data.fileSize >= 1 && data.fileSize <= 768000
+            && 'fileBase64' in data && data.fileBase64 is string && data.fileBase64.size() >= 1 && data.fileBase64.size() <= 1030000
+            && !('urlGoogleDrive' in data)
+          )
+        )
+        && data.createdByUid is string && data.createdByUid.size() >= 1 && data.createdByUid.size() <= 128
+        && data.createdByName is string && data.createdByName.size() >= 1 && data.createdByName.size() <= 150
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidBidangStatEntry(entry) {
+      return entry is map
+        && entry.keys().hasAll(['aktif', 'inaktif', 'usulMusnah', 'statis', 'musnah', 'total'])
+        && entry.keys().hasOnly(['aktif', 'inaktif', 'usulMusnah', 'statis', 'musnah', 'total'])
+        && (entry.aktif is int || entry.aktif is float) && entry.aktif >= 0 && entry.aktif <= 1000000
+        && (entry.inaktif is int || entry.inaktif is float) && entry.inaktif >= 0 && entry.inaktif <= 1000000
+        && (entry.usulMusnah is int || entry.usulMusnah is float) && entry.usulMusnah >= 0 && entry.usulMusnah <= 1000000
+        && (entry.statis is int || entry.statis is float) && entry.statis >= 0 && entry.statis <= 1000000
+        && (entry.musnah is int || entry.musnah is float) && entry.musnah >= 0 && entry.musnah <= 1000000
+        && (entry.total is int || entry.total is float) && entry.total >= 0 && entry.total <= 1000000;
+    }
+
+    function isValidStatistikSatker(data) {
+      return data.keys().hasAll(['updatedByUid', 'updatedAt'])
+        && data.keys().hasOnly(['pembinaan', 'datun', 'papbb', 'pidum', 'pidsus', 'intelijen', 'updatedByUid', 'updatedAt'])
+        && data.updatedByUid is string && data.updatedByUid == request.auth.uid && data.updatedByUid.size() <= 128
+        && data.updatedAt is timestamp
+        && (!('pembinaan' in data) || isValidBidangStatEntry(data.pembinaan))
+        && (!('datun' in data) || isValidBidangStatEntry(data.datun))
+        && (!('papbb' in data) || isValidBidangStatEntry(data.papbb))
+        && (!('pidum' in data) || isValidBidangStatEntry(data.pidum))
+        && (!('pidsus' in data) || isValidBidangStatEntry(data.pidsus))
+        && (!('intelijen' in data) || isValidBidangStatEntry(data.intelijen));
+    }
+
+    match /users/{userId} {
+      allow get: if isVerifiedUser() && isValidId(userId) && (request.auth.uid == userId || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isVerifiedUser()
+        && isValidId(userId)
+        && request.auth.uid == userId
+        && isValidUser(incoming(), userId)
+        && incoming().email == request.auth.token.email
+        && incoming().lastLogin == request.time
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (
+          (isBootstrappedAdminEmail() && incoming().role == 'admin' && incoming().status == 'Aktif' && isValidBidang(incoming().bidang)) ||
+          (!isBootstrappedAdminEmail() && incoming().role == 'staf' && incoming().status == 'Pending' && incoming().bidang == '')
+        );
+      allow update: if isVerifiedUser()
+        && isValidId(userId)
+        && isValidUser(incoming(), userId)
+        && incoming().uid == existing().uid
+        && incoming().email == existing().email
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          existing().email != 'connectfarhan.workspace@gmail.com' ||
+          (incoming().role == 'admin' && incoming().status == 'Aktif' && isValidBidang(incoming().bidang))
+        )
+        && (
+          (isAdmin()
+            && (
+              ('lastLogin' in existing() && incoming().lastLogin == existing().lastLogin && incoming().diff(existing()).affectedKeys().hasOnly(['role', 'bidang', 'status', 'displayName', 'photoURL', 'updatedAt'])) ||
+              (!('lastLogin' in existing()) && incoming().lastLogin == request.time && incoming().diff(existing()).affectedKeys().hasOnly(['role', 'bidang', 'status', 'displayName', 'photoURL', 'lastLogin', 'updatedAt']))
+            )
+          ) ||
+          (request.auth.uid == userId
+            && incoming().lastLogin == request.time
+            && (
+              (isBootstrappedAdminEmail()
+                && incoming().role == 'admin'
+                && incoming().status == 'Aktif'
+                && isValidBidang(incoming().bidang)
+                && incoming().diff(existing()).affectedKeys().hasOnly(['role', 'bidang', 'status', 'displayName', 'photoURL', 'lastLogin', 'updatedAt'])
+              ) ||
+              (!isBootstrappedAdminEmail()
+                && incoming().role == existing().role
+                && incoming().bidang == existing().bidang
+                && (
+                  ('status' in existing() && incoming().status == existing().status) ||
+                  (!('status' in existing()) && incoming().status == (existing().role == 'admin' || existing().role == 'pimpinan' || isValidBidang(existing().bidang) ? 'Aktif' : 'Pending'))
+                )
+                && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'photoURL', 'status', 'lastLogin', 'updatedAt'])
+              )
+            )
+          )
+        );
+      allow delete: if isAdmin() && isValidId(userId) && request.auth.uid != userId && existing().email != 'connectfarhan.workspace@gmail.com';
+    }
+
+    match /system/{docId} {
+      allow get: if isVerifiedUser() && isValidId(docId) && docId == 'bootstrap';
+      allow list: if false;
+      allow create: if isVerifiedUser()
+        && isValidId(docId)
+        && docId == 'bootstrap'
+        && !exists(/databases/$(database)/documents/system/bootstrap)
+        && incoming().keys().hasAll(['firstAdminUid', 'createdAt'])
+        && incoming().keys().hasOnly(['firstAdminUid', 'createdAt'])
+        && incoming().firstAdminUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && existsAfter(/databases/$(database)/documents/users/$(request.auth.uid));
+      allow update, delete: if false;
+    }
+
+    match /metadata/{docId} {
+      allow get: if isActiveUser() && isValidId(docId) && docId == 'statistik_satker';
+      allow list: if false;
+      allow create: if isVerifiedUser()
+        && isValidId(docId)
+        && docId == 'statistik_satker'
+        && isValidStatistikSatker(incoming())
+        && incoming().updatedAt == request.time
+        && (
+          isAdmin() ||
+          (isActiveUser()
+            && userProfile().role == 'staf'
+            && isValidBidang(userProfile().bidang)
+            && incoming().keys().hasOnly([userProfile().bidang, 'updatedByUid', 'updatedAt'])
+          )
+        );
+      allow update: if isVerifiedUser()
+        && isValidId(docId)
+        && docId == 'statistik_satker'
+        && isValidStatistikSatker(incoming())
+        && incoming().updatedAt == request.time
+        && (
+          isAdmin() ||
+          (isActiveUser()
+            && userProfile().role == 'staf'
+            && isValidBidang(userProfile().bidang)
+            && incoming().diff(existing()).affectedKeys().hasOnly([userProfile().bidang, 'updatedByUid', 'updatedAt'])
+          )
+        );
+      allow delete: if false;
+    }
+
+    match /jra_master/{jraId} {
+      allow get: if isActiveUser() && isValidId(jraId);
+      allow list: if isActiveUser();
+      allow create: if isAdmin()
+        && isValidId(jraId)
+        && isValidJraItem(incoming())
+        && incoming().createdByUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+      allow update: if isAdmin()
+        && isValidId(jraId)
+        && isValidJraItem(incoming())
+        && incoming().createdByUid == existing().createdByUid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly(['nomor', 'kodeKlasifikasi', 'uraian', 'retensiAktif', 'retensiInaktif', 'keteranganAkhir', 'bidang', 'updatedAt']);
+      allow delete: if isAdmin() && isValidId(jraId);
+    }
+
+    match /archives/{archiveId} {
+      allow get: if isVerifiedUser() && isValidId(archiveId) && (
+        isAdmin() || isPimpinan() || isStafOf(existing().bidang)
+      );
+      allow list: if isVerifiedUser() && (
+        isAdmin() || isPimpinan() || isStafOf(resource.data.bidang)
+      );
+      allow create: if isVerifiedUser()
+        && isValidId(archiveId)
+        && isValidArchiveItem(incoming())
+        && 'tanggalInputISO' in incoming()
+        && 'diinputOleh' in incoming()
+        && incoming().keterangan != 'Musnah'
+        && incoming().createdByUid == request.auth.uid
+        && incoming().updatedByUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (isAdmin() || isStafOf(incoming().bidang));
+      allow update: if isVerifiedUser()
+        && isValidId(archiveId)
+        && isValidArchiveItem(incoming())
+        && existing().keterangan != 'Musnah'
+        && incoming().tanggalInput == existing().tanggalInput
+        && (!('tanggalInputISO' in existing()) || incoming().tanggalInputISO == existing().tanggalInputISO)
+        && (!('diinputOleh' in existing()) || incoming().diinputOleh == existing().diinputOleh)
+        && incoming().createdByUid == existing().createdByUid
+        && incoming().createdByName == existing().createdByName
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedByUid == request.auth.uid
+        && incoming().updatedAt == request.time
+        && (
+          (isAdmin()
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'nomorBerkas', 'nomorItem', 'kodeKlasifikasi', 'uraian', 'kurunWaktu',
+              'tingkatPerkembangan', 'jumlah', 'filingCabinet', 'laci', 'folder',
+              'klasifikasiKeamanan', 'kondisiFisik', 'penataan', 'retensiAktif',
+              'retensiInaktif', 'keteranganAkhir', 'dasarRetensi', 'nomorBoks',
+              'catatanRecordCenter', 'keterangan',
+              'nomorSuratAnri', 'tanggalPersetujuanAnri', 'nomorBaPemusnahan',
+              'tanggalPemusnahan', 'metodePemusnahan',
+              'bidang', 'updatedByUid', 'updatedByName', 'updatedAt'
+            ])
+            && (
+              incoming().keterangan != 'Musnah' ||
+              (
+                'nomorSuratAnri' in incoming() && incoming().nomorSuratAnri.size() >= 1 &&
+                'tanggalPersetujuanAnri' in incoming() && incoming().tanggalPersetujuanAnri.size() >= 1 &&
+                'nomorBaPemusnahan' in incoming() && incoming().nomorBaPemusnahan.size() >= 1 &&
+                'tanggalPemusnahan' in incoming() && incoming().tanggalPemusnahan.size() >= 1 &&
+                'metodePemusnahan' in incoming()
+              )
+            )
+          ) ||
+          (isStafOf(existing().bidang)
+            && incoming().bidang == existing().bidang
+            && incoming().keterangan != 'Musnah'
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'nomorBerkas', 'nomorItem', 'kodeKlasifikasi', 'uraian', 'kurunWaktu',
+              'tingkatPerkembangan', 'jumlah', 'filingCabinet', 'laci', 'folder',
+              'klasifikasiKeamanan', 'kondisiFisik', 'penataan', 'retensiAktif',
+              'retensiInaktif', 'keteranganAkhir', 'dasarRetensi', 'nomorBoks',
+              'catatanRecordCenter', 'keterangan', 'updatedByUid', 'updatedByName', 'updatedAt'
+            ])
+          )
+        );
+      allow delete: if isVerifiedUser() && isValidId(archiveId) && (
+        isAdmin() || (isStafOf(existing().bidang) && existing().keterangan != 'Musnah')
+      );
+    }
+
+    match /loans/{loanId} {
+      allow get: if isVerifiedUser() && isValidId(loanId) && (
+        isAdmin() || isPimpinan() || isStafOf(existing().bidang)
+      );
+      allow list: if isVerifiedUser() && (
+        isAdmin() || isPimpinan() || isStafOf(resource.data.bidang)
+      );
+      allow create: if isVerifiedUser()
+        && isValidId(loanId)
+        && isValidLoanItem(incoming())
+        && incoming().createdByUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (isAdmin() || isStafOf(incoming().bidang));
+      allow update: if isVerifiedUser()
+        && isValidId(loanId)
+        && isValidLoanItem(incoming())
+        && incoming().createdByUid == existing().createdByUid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          (isAdmin() && incoming().diff(existing()).affectedKeys().hasOnly([
+            'nomor', 'tanggalPinjam', 'kodeKlasifikasi', 'uraianBerkas', 'namaPeminjam',
+            'bidang', 'targetKembali', 'realisasiKembali', 'keterangan', 'updatedAt'
+          ])) ||
+          (isStafOf(existing().bidang) && incoming().bidang == existing().bidang && incoming().diff(existing()).affectedKeys().hasOnly([
+            'nomor', 'tanggalPinjam', 'kodeKlasifikasi', 'uraianBerkas', 'namaPeminjam',
+            'targetKembali', 'realisasiKembali', 'keterangan', 'updatedAt'
+          ]))
+        );
+      allow delete: if isVerifiedUser() && isValidId(loanId) && (
+        isAdmin() || isStafOf(existing().bidang)
+      );
+    }
+
+    match /library_items/{itemId} {
+      allow get: if isActiveUser() && isValidId(itemId);
+      allow list: if isActiveUser();
+      allow create: if isAdmin()
+        && isValidId(itemId)
+        && isValidLibraryItem(incoming())
+        && incoming().createdByUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+      allow update: if isAdmin()
+        && isValidId(itemId)
+        && isValidLibraryItem(incoming())
+        && incoming().createdByUid == existing().createdByUid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly(['judul', 'kategori', 'deskripsi', 'url', 'updatedAt']);
+      allow delete: if isAdmin() && isValidId(itemId);
+    }
+
+    match /vital_archives/{vitalId} {
+      allow get: if isVerifiedUser() && isValidId(vitalId) && (
+        isAdmin() || isPimpinan() || isStafOf(existing().bidang)
+      );
+      allow list: if isVerifiedUser() && (
+        isAdmin() || isPimpinan() || isStafOf(resource.data.bidang)
+      );
+      allow create: if isVerifiedUser()
+        && isValidId(vitalId)
+        && isValidVitalArchiveItem(incoming())
+        && incoming().createdByUid == request.auth.uid
+        && incoming().updatedByUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (isAdmin() || isStafOf(incoming().bidang));
+      allow update: if isVerifiedUser()
+        && isValidId(vitalId)
+        && isValidVitalArchiveItem(incoming())
+        && incoming().createdByUid == existing().createdByUid
+        && incoming().createdByName == existing().createdByName
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedByUid == request.auth.uid
+        && incoming().updatedAt == request.time
+        && (
+          (isAdmin() && incoming().diff(existing()).affectedKeys().hasOnly([
+            'nomor', 'bidang', 'kodeKlasifikasi', 'uraian', 'kurunWaktu',
+            'mediaSimpan', 'jumlah', 'jangkaSimpan', 'metodePerlindungan', 'lokasiSimpan',
+            'tingkatKerawanan', 'tautanBackup', 'keterangan',
+            'updatedByUid', 'updatedByName', 'updatedAt'
+          ])) ||
+          (isStafOf(existing().bidang) && incoming().bidang == existing().bidang && incoming().diff(existing()).affectedKeys().hasOnly([
+            'nomor', 'kodeKlasifikasi', 'uraian', 'kurunWaktu',
+            'mediaSimpan', 'jumlah', 'jangkaSimpan', 'metodePerlindungan', 'lokasiSimpan',
+            'tingkatKerawanan', 'tautanBackup', 'keterangan',
+            'updatedByUid', 'updatedByName', 'updatedAt'
+          ]))
+        );
+      allow delete: if isVerifiedUser() && isValidId(vitalId) && (
+        isAdmin() || isStafOf(existing().bidang)
+      );
+    }
+
+    match /dokumen_kearsipan/{docId} {
+      allow get: if isActiveUser() && isValidId(docId);
+      allow list: if isActiveUser();
+      allow create: if isAdmin()
+        && isValidId(docId)
+        && isValidDokumenKearsipan(incoming())
+        && incoming().createdByUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+      allow update: if isAdmin()
+        && isValidId(docId)
+        && isValidDokumenKearsipan(incoming())
+        && incoming().createdByUid == existing().createdByUid
+        && incoming().createdByName == existing().createdByName
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time;
+      allow delete: if isAdmin() && isValidId(docId);
+    }
+  }
+}

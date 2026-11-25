@@ -1,0 +1,483 @@
+,,,,,
+,Kode Klasifikasi,Masa Aktif,Masa Inaktif,Klasifikasi Keamanan,Keterangan
+,PU Tindak Pidana Umum,,,,
+,PU.00 Perumusan Kebijakan Bidang Penegakan Hukum Tindak Pidana Umum,1,4,Terbatas,Musnah
+,PU.01.00 Prapenuntutan tindak pidana dalam Kitab Undang-Undang Hukum Pidana (KUHP) dan tindak pidana terhadap orang dan harta benda,2,3,Terbatas,Musnah
+,PU.01.01 Praperadilan tindak pidana dalam KUHP dan tindak pidana terhadap orang dan harta benda,2,3,Terbatas,Musnah
+,PU.01.02 Penuntutan tindak pidana dalam KUHP dan tindak pidana terhadap orang dan harta benda,2,3,Terbatas,Permanen
+,PU.01.03 Eksekusi tindak pidana dalam KUHP dan tindak pidana terhadap orang dan harta benda,2,3,Terbatas,Musnah
+,PU.01.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.01.05 Eksaminasi tindak pidana dalam KUHP dan tindak pidana terhadap orang dan harta benda,2,3,Terbatas,Permanen
+,PU.02.00 Prapenuntutan tindak pidana keamanan negara dan ketertiban umum,2,3,Terbatas,Musnah
+,PU.02.01 Praperadilan tindak pidana keamanan negara dan ketertiban umum ,2,3,Terbatas,Musnah
+,PU.02.02 Penuntutan tindak pidana keamanan negara dan ketertiban umum ,2,3,Terbatas,Permanen
+,PU.02.03 Eksekusi tindak pidana keamanan negara dan ketertiban umum ,2,3,Terbatas,Musnah
+,PU.02.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.02.05 Eksaminasi tindak pidana keamanan negara dan ketertiban umum ,2,3,Terbatas,Permanen
+,PU.03.00 Eksekusi tindak pidana ringan,2,3,Terbatas,Musnah
+,PU.03.01 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.03.02 Eksaminasi tindak pidana ringan,2,3,Terbatas,Permanen
+,PU.04.00 Eksekusi tindak pidana pelanggaran lalu lintas,2,3,Terbatas,Musnah
+,PU.04.01 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.04.02 Eksaminasi tindak pidana pelanggaran lalu lintas,2,3,Terbatas,Permanen
+,PU.05.00 Prapenuntutan tindak pidana narkotika dan psikotropika,2,3,Terbatas,Musnah
+,PU.05.01 Praperadilan tindak pidana narkotika dan psikotropika (setelah huruf b agar diberi titik),2,3,Terbatas,Musnah
+,PU.05.02 Penuntutan tindak pidana narkotika dan psikotropika,2,3,Terbatas,Permanen
+,PU.05.03 Eksekusi tindak pidana narkotika dan psikotropika,2,3,Terbatas,Permanen
+,PU.05.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.05.05 Eksaminasi tindak pidana narkotika dan psikotropika,2,3,Terbatas,Permanen
+,PU.06.00 Prapenuntutan tindak pidana kesehatan,2,3,Terbatas,Musnah
+,PU.06.01 Praperadilan tindak pidana kesehatan,2,3,Terbatas,Musnah
+,PU.06.02 Penuntutan tindak pidana kesehatan,2,3,Terbatas,Permanen
+,PU.06.03 Eksekusi tindak pidana kesehatan,2,3,Terbatas,Permanen
+,PU.06.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.06.05 Eksaminasi tindak pidana kesehatan,2,3,Terbatas,Permanen
+,PU.07.00 Prapenuntutan tindak pidana keuangan,2,3,Terbatas,Musnah
+,PU.07.01 Praperadilan tindak pidana keuangan,2,3,Terbatas,Musnah
+,PU.07.02 Penuntutan tindak pidana keuangan,2,3,Terbatas,Permanen
+,PU.07.03 Eksekusi tindak pidana keuangan,2,3,Terbatas,Permanen
+,PU.07.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.07.05 Eksaminasi tindak pidana keuangan,2,3,Terbatas,Permanen
+,PU.08.00 Prapenuntutan tindak pidana siber,2,3,Terbatas,Musnah
+,PU.08.01 Praperadilan tindak pidana siber,2,3,Terbatas,Musnah
+,PU.08.02 Penuntutan tindak pidana siber,2,3,Terbatas,Permanen
+,PU.08.03 Eksekusi tindak pidana siber,2,3,Terbatas,Permanen
+,PU.08.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.08.05 Eksaminasi tindak pidana siber,2,3,Terbatas,Permanen
+,PU.09.00 Prapenuntutan tindak pidana sumber daya alam,2,3,Terbatas,Musnah
+,PU.09.01 Praperadilan tindak pidana sumber daya alam,2,3,Terbatas,Musnah
+,PU.09.02 Penuntutan tindak pidana sumber daya alam,2,3,Terbatas,Permanen
+,PU.09.03 Eksekusi tindak pidana sumber daya alam,2,3,Terbatas,Permanen
+,PU.09.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.09.05 Eksaminasi tindak pidana sumber daya alam,2,3,Terbatas,Permanen
+,PU.10.00 Prapenuntutan tindak pidana terorisme,2,3,Terbatas,Musnah
+,PU.10.01 Praperadilan tindak pidana terorisme,2,3,Terbatas,Musnah
+,PU.10.02 Penuntutan tindak pidana terorisme,2,3,Terbatas,Permanen
+,PU.10.03 Eksekusi tindak pidana terorisme,2,3,Terbatas,Permanen
+,PU.10.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.10.05 Eksaminasi tindak pidana terorisme,2,3,Terbatas,Permanen
+,"PU.11.00 Prapenuntutan tindak pidana terhadap perempuan, anak dan perdagangan orang ",2,3,Terbatas,Musnah
+,"PU.11.01 Praperadilan tindak pidana terhadap perempuan, anak dan perdagangan orang ",2,3,Terbatas,Musnah
+,"PU.11.02 Penuntutan tindak pidana terhadap perempuan, anak dan perdagangan orang ",2,3,Terbatas,Permanen
+,"PU.11.03 Eksekusi tindak pidana terhadap perempuan, anak dan perdagangan orang ",2,3,Terbatas,Permanen
+,PU.11.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,"PU.11.05 Eksaminasi tindak pidana terhadap perempuan, anak dan perdagangan orang ",2,3,Terbatas,Permanen
+,PU.12.00 Prapenuntutan tindak pidana hak kekayaan intelektual,2,3,Terbatas,Musnah
+,PU.12.01 Praperadilan tindak pidana hak kekayaan intelektual,2,3,Terbatas,Musnah
+,PU.12.02 Penuntutan tindak pidana hak kekayaan intelektual,2,3,Terbatas,Permanen
+,PU.12.03 Eksekusi tindak pidana hak kekayaan intelektual,2,3,Terbatas,Permanen
+,PU.12.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.12.05 Eksaminasi tindak pidana hak kekayaan intelektual,2,3,Terbatas,Permanen
+,PU.13.00 Prapenuntutan tindak pidana umum lainnya,2,3,Terbatas,Musnah
+,PU.13.01 Praperadilan tindak pidana umum lainnya,2,3,Terbatas,Musnah
+,PU.13.02 Penuntutan tindak pidana umum lainnya,2,3,Terbatas,Permanen
+,PU.13.03 Eksekusi tindak pidana umum lainnya,2,3,Terbatas,Permanen
+,PU.13.04 Upaya hukum luar biasa (peninjauan kembali),2,3,Terbatas,Permanen
+,PU.13.05 Eksaminasi tindak pidana umum lainnya,2,3,Terbatas,Permanen
+,PU.14 Penegakan Hukum Perkara yang Dihentikan Penuntutannya Berdasarkan Keadilan Restoratif,2,3,Terbatas,Permanen
+,PU.15 Rekomendasi Penyidik Pegawai Negeri Sipil (PPNS),2,3,Terbatas,Musnah
+,PR PERENCANAAN,,,,
+,PR.00 Pokok-pokok Kebijakan dan Strategi Pembangunan ,,,,
+,PR.00.00 Rencana Pembangunan Jangka Panjang/Master Plan (RPJP),1,4,Biasa/Terbuka,Musnah
+,PR.00.01 Rencana Pembangunan Jangka Menengah (RPJM),1,4,Biasa/Terbuka,Musnah
+,PR.00.02 Rencana Strategis (Renstra),1,3,Biasa/Terbuka,Permanen
+,PR.00.03 Musyawarah Perencanaan Pembangunan Nasional (Musrenbang),2,3,Biasa/Terbuka,Musnah
+,PR.01 Rencana Kerja,,,Biasa/Terbuka,
+,PR.01.00 Usulan kegiatan unit kerja beserta data pendukung,2,3,Biasa/Terbuka,Musnah
+,PR.01.01 Rencana kerja tahunan,2,3,Biasa/Terbuka,Musnah
+,PR.01.02 Rencana kerja berdasar pagu indikatif,2,3,Biasa/Terbuka,Permanen
+,PR.01.03 Inisiatif baru/new initiative ,2,3,Biasa/Terbuka,Permanen
+,PR.02 Penetapan/Kontrak/Perjanjian Kinerja ,,,,
+,PR.02.00 Jaksa Agung,2,3,Terbatas,Permanen
+,PR.02.01 Pimpinan unit kerja/satuan kerja,2,3,Terbatas,Musnah
+,PR.02.02 Eselon III/eselon IV/staf/pejabat fungsional tertentu dan fungsional umum,2,3,Biasa/Terbuka,Musnah
+,PR.03 Perencanaan Anggaran,,,,
+,PR.03.00 Penyusunan Rencana Anggaran (RKAKL/KAK),2,3,Biasa/Terbuka,Musnah
+,PR.03.01 Perencanaan Penerimaan Negara Bukan Pajak (PNBP),2,3,Biasa/Terbuka,Musnah
+,PR.03.02 Penetapan Anggaran (DIPA/POK),2,3,Biasa/Terbuka,Permanen
+,PR.04 Revisi Anggaran,,,Biasa/Terbuka,
+,PR.04.00 Revisi DIPA dan POK,2,3,Biasa/Terbuka,Permanen
+,PR.04.01 Anggaran Biaya Tambahan,2,3,Biasa/Terbuka,Musnah
+,PR.04.02 Anggaran Pendapatan dan Belanja Negara (APBN) Perubahan,2,3,Biasa/Terbuka,Musnah
+,PR.05 Laporan,,,,
+,"PR.05.00 Laporan berkala (bulanan, triwulan, dan semester)",1,1,Terbatas,Musnah
+,PR.05.01 Laporan tahunan unit kerja,2,3,Biasa/Terbuka,Musnah
+,PR.05.02 Laporan tahunan lembaga,2,3,Biasa/Terbuka,Permanen
+,PR.05.03 Laporan khusus,1,1,Biasa/Terbuka,Permanen
+,PR.05.04 Laporan perkembangan tahapan kegiatan/progress report,1,1,Biasa/Terbuka,Musnah
+,PR.05.05 Laporan Akuntabilitas Kinerja Instansi (LAKIN)/LKJ,1,4,Biasa/Terbuka,Permanen
+,PR.06 Evaluasi Program,,,,
+,PR.06.00 Evaluasi program unit kerja,2,3,Terbatas,Musnah
+,PR.06.00 Evaluasi program lembaga,2,3,Terbatas,Permanen
+,KE KERJA SAMA ,,,,
+,KE.00 Kerja sama dalam negeri,1,4,Biasa/Terbuka,Permanen
+,KE.01 Kerja sama internasional,1,4,Biasa/Terbuka,Permanen
+,HK HUKUM,,,,
+,HK.00 Program Legislasi,,,,
+,HK.00.00 Bahan/materi program legislasi nasional,2,3,Biasa/Terbuka,Permanen
+,HK.00.01 Program legislasi instansi,2,3,Biasa/Terbuka,Permanen
+,HK.01 Produk Hukum,,,,
+,HK.01.00 Produk hukum yang bersifat pengaturan,2,3,Biasa/Terbuka,Permanen
+,HK.01.01 Produk hukum yang bersifat penetapan,2,3,Biasa/Terbuka,Musnah
+,HK.02 Pedoman/Petunjuk Pelaksanaan (NSPK),2,3,Biasa/Terbuka,Permanen
+,HK.03 Dokumentasi dan Informasi Hukum ,2,3,Biasa/Terbuka,Musnah
+,"HK.04 Sosialisasi, Penyebarluasan Informasi, dan Pembinaan Hukum",,,,
+,HK.04.00 Sosialisasi/diseminasi hukum,2,3,Biasa/Terbuka,Musnah
+,HK.04.01 Penyebarluasan produk dan informasi hukum,2,3,Biasa/Terbuka,Musnah
+,HK.04.02 Penerangan dan penyuluhan hukum,2,3,Biasa/Terbuka,Musnah
+,HK.05 Pertimbangan/Telaah Hukum/Judicial Review Peraturan Perundang-undangan,2,3,Terbatas,Musnah
+,HK.06 Terjemahan Peraturan Perundang-undangan,2,3,Terbatas,Musnah
+,"HK.07 Ekstradisi, Bantuan Hukum Timbal Balik, dan Pemindahan Narapidana antar Negara",2,3,Terbatas,Musnah
+,HM HUBUNGAN MASYARAKAT,,,,
+,"HM.00 Pengumpulan, Pengolahan dan Penyajian Informasi Kelembagaan ",,,,
+,HM.00.00 Brosur/leaflet/poster,1,1,Biasa/Terbuka,Musnah
+,HM.00.01 Pengumuman,1,1,Biasa/Terbuka,Musnah
+,HM.00.02 Pemberitaan,1,1,Biasa/Terbuka,Musnah
+,HM.00.03 Kliping koran ,2,3,Biasa/Terbuka,Musnah
+,HM.01 Hubungan antar Lembaga,,,Biasa/Terbuka,
+,"HM.01.00 Hubungan pemerintahan (eksekutif, yudikatif, dan legislatif)",1,4,Biasa/Terbuka,Musnah
+,"HM.01.01 Hubungan dengan perguruan tinggi/sekolah termasuk magang, Pendidikan Sistem Ganda (PSG), dan Praktek Kerja Lapangan (PKL)",1,1,Biasa/Terbuka,Musnah
+,HM.01.02 Hubungan dengan forum kehumasan/badan koordinasi kehumasan/perhimpunan hubungan masyarakat,1,2,Biasa/Terbuka,Musnah
+,HM.01.03 Hubungan dengan media massa,1,2,Biasa/Terbuka,Musnah
+,HM.01.04Siaran pers/konferensi pers/press release,1,2,Biasa/Terbuka,Permanen
+,HM.01.05 Penerimaan laporan pengaduan,2,3,Biasa/Terbuka,Musnah
+,HM.01.06 Survey Kepuasan Masyarakat,2,3,Biasa/Terbuka,Musnah
+,HM.02 Hearing (Rapat Dengar Pendapat/RDP) dengan Dewan Perwakilan Rakyat (DPR),1,4,Rahasia,Permanen
+,"HM.03 Bahan/Materi Pidato/Sidang Majelis Pemusyawaratan Rakyat (MPR), DPR, Dewan Perwakilan Daerah (DPD), dan Kabinet",1,4,Biasa/Terbuka,Permanen
+,HM.04 Dokumentasi Hasil Liputan Kegiatan Pimpinan atau Acara Kelembagaan,2,3,Biasa/Terbuka,Permanen
+,"HM.05 Penerbitan Majalah, Buletin, Koran, dan Jurnal",1,3,Biasa/Terbuka,Musnah
+,HM.06 Publikasi melalui Media Cetak maupun Elektronik,1,3,Biasa/Terbuka,Musnah
+,HM.07 Pameran/Sayembara dan Festival,1,4,Biasa/Terbuka,Musnah
+,HM.08 Penghargaan/Tanda Kenang-kenangan ,2,3,Biasa/Terbuka,Permanen
+,"HM.09 Ucapan Terima Kasih, Ucapan Selamat, Bela Sungkawa, dan Permohonan Maaf",1,1,Biasa/Terbuka,Musnah
+,HM.10 Layanan Informasi Publik (LIP),1,2,Biasa/Terbuka,Musnah
+,OT ORGANISASI DAN KETATALAKSANAAN,,,,
+,OT.00 ORGANISASI,,,,
+,"OT.00.00 Struktur organisasi, tugas pokok dan fungsi organisasi",1,4,Biasa/Terbuka,Permanen
+,"OT,00.01 Evaluasi organisasi",1,4,Biasa/Terbuka,Permanen
+,OT.01 Tata Laksana,,,,
+,OT.01.00 Sistem dan prosedur kerja,1,4,Biasa/Terbuka,Permanen
+,OT.01.01 Kajian/analisis jabatan/analisis manajemen serta penyuluhan ketatalaksanaan,1,4,Biasa/Terbuka,Permanen
+,OT.01.02 Standar kompetensi jabatan,1,4,Biasa/Terbuka,Permanen
+,OT.02 Reformasi Birokrasi,,,Biasa/Terbuka,
+,OT.02.00 Implementasi reformasi birokrasi,2,3,Biasa/Terbuka,Musnah
+,OT.02.01 Monitoring dan evaluasi reformasi birokrasi,2,3,Biasa/Terbuka,Musnah
+,OT.02.02 Penilaian reformasi birokrasi,2,3,Biasa/Terbuka,Musnah
+,KP KEPEGAWAIAN,,,,
+,KP.00 Formasi Pegawai,,,Biasa/Terbuka,
+,KP.00.00 Usulan dari Unit Kerja,1,3,Biasa/Terbuka,Musnah
+,KP.00.01 Usulan permintaan formasi ke Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi (KemenPAN-RB),2,3,Biasa/Terbuka,Musnah
+,KP.00.02 Persetujuan formasi dari (KemenPAN-RB),2,3,Biasa/Terbuka,Musnah
+,KP.00.03 Penetapan formasi ,2,3,Biasa/Terbuka,Musnah
+,KP.00.04 Penetapan formasi khusus,2,3,Biasa/Terbuka,Permanen
+,KP.01 Pengadaan Aparatur Sipil Negara (ASN) Pegawai Negeri Sipil (PNS),,,,
+,KP.01.00 Proses penerimaan PNS,2,3,Biasa/Terbuka,Musnah
+,"KP.01.01 Sanggahan proses seleksi, pengumuman kelulusan, dan kelengkapan berkas",2,3,Terbatas,Musnah
+,KP.01.02 Penetapan pengumuman kelulusan,2,3,Terbatas,Musnah
+,KP.01.03  Berkas lamaran yang tidak diterima,1,1,Terbatas,Musnah
+,KP.01.04 Nota usul dan kelengkapan penetapan Nomor Induk Pegawai (NIP),,,,
+,KP.01.05 Nota usul dan pengangkatan Calon Pegawai Negeri Sipil (CPNS) menjadi PNS lebih 2 tahun,1,1,Terbatas,Permanen
+,KP.01.06 Keputusan pengangkatan CPNS/PNS kolektif,2,3,Terbatas,Permanen
+,KP.02 Pengadaan ASN Pegawai Pemerintah dengan Perjanjian Kerja (P3K)/ Pegawai Kontrak,2,3,Biasa/Terbuka,Musnah
+,KP.02.00 Proses penerimaan ASN/P3K,2,3,Biasa/Terbuka,Musnah
+,KP.02.01 Penetapan pengumuman kelulusan,2,3,Terbatas,Musnah
+,KP.02.02 Pengangkatan ASN P3K,1,1,Terbatas,Musnah
+,KP.02.03 Berkas lamaran yang tidak diterima,1,1,Terbatas,Musnah
+,KP.02.04 Keputusan/Perjanjian Kerja,1,1,Terbatas,Musnah
+,KP.03 Pengadaan Pegawai Non ASN/Pegawai Pemerintah Non Pegawai Negeri (PPNPN),1,1,Biasa/Terbuka,Musnah
+,KP.04 Pengadaan Jabatan Pimpinan Tinggi Madya dan Pratama,2,3,Terbatas,Musnah
+,KP.04.00 Proses penerimaan jabatan pimpinan tinggi madya dan pratama,2,3,Terbatas,Musnah
+,KP.04.01 Penetapan pengumuman kelulusan,1,1,Biasa/Terbuka,Musnah
+,KP.04.02 Berkas lamaran yang tidak diterima ,1,1,Biasa/Terbuka,Musnah
+,KP.04.03 Usul rekomendasi Komisi Aparatur Sipil Negara (KASN),1,1,Biasa/Terbuka,Permanen
+,KP.04.04 Nota usul ke Presiden,2,2,Biasa/Terbuka,Permanen
+,KP.05 Pembinaan/Pengembangan Karier Pegawai,,,,
+,KP.05.00 Izin belajar/pendidikan dan pelatihan (diklat)/kursus/ujian dinas/ujian penyesuaian kenaikan pangkat,2,3,Terbatas,Musnah
+,KP.05.01 Sasaran Kinerja Pegawai (SKP),1,1,Terbatas,Musnah
+,KP.05.02 Pakta integritas/kesetiaan pada ideologi Pancasila,1,1,Terbatas,Musnah
+,KP.05.03 Penetapan Angka Kredit (PAK) jabatan fungsional,1,1,Terbatas,Musnah
+,KP.05.04 Disiplin pegawai ,1,1,Terbatas,Musnah
+,KP.05.05 Pelaksanaan keputusan hukuman disiplin,1,1,Terbatas,Musnah
+,KP.05.06 Majelis Kehormatan Jaksa,2,3,Biasa/Terbuka,Musnah
+,KP.05.07 Clearence/Surat Keterangan Kepegawaian,2,3,Biasa/Terbuka,Musnah
+,"KP.05.08 Penghargaan dan tanda jasa/Satya Lencana Karya Satya (10, 20, dan 30)",2,3,Biasa/Terbuka,Permanen
+,KP.06 Mutasi Pegawai,,,,
+,"KP.06.00 Alih status, pindah instansi, pindah wilayah kerja, diperbantukan, dipekerjakan, penugasan sementara, pindah sementara, mutasi antar unit, dan penugasan Tentara Nasional Indonesia (TNI) yang dikaryakan",1,2,Terbatas,Musnah
+,KP.06.01 Mutasi keluarga,2,2,Terbatas,Musnah
+,KP.06.02 Kenaikan pangkat/golongan,1,4,Terbatas,Musnah
+,KP.06.03 Kenaikan gaji berkala,2,2,Terbatas,Musnah
+,KP.06.04 Pengangkatan dan pemberhentian dalam jabatan,1,4,Terbatas,Musnah
+,KP.06.05 Penetapan perubahan data dasar/status/kedudukan hukum pegawai yang melakukan tindak pidana,1,4,Terbatas,Musnah
+,KP.06.06 Peninjauan masa kerja,2,3,Terbatas,Musnah
+,KP.06.07 Badan Pertimbangan Jabatan dan Kepangkatan (BAPERJAKAT)/ Tim Penilai Kinerja,1,4,Terbatas,Musnah
+,KP.07 Administrasi Pegawai,,,,
+,KP.07.00 Administrasi Pegawai,2,2,Terbatas,Musnah
+,"KP.07.01 Cuti sakit, cuti bersalin, cuti tahunan ",1,1,Terbatas,Musnah
+,KP.07.02 Cuti alasan penting ,1,1,Terbatas,Musnah
+,KP.07.03 CTLN  ,3,3,Terbatas,Permanen
+,KP.07.04 Dokumentasi identitas pegawai ,1,2,Terbatas,Musnah
+,KP.07.05 Daftar Urut Kepangkatan (DUK),2,1,Terbatas,Musnah
+,KP.08 Kesejahteraan Pegawai,,,,
+,KP.08.00 Pemeliharaan kesehatan pegawai,2,1,Terbatas,Musnah
+,KP.08.01 Asuransi Pegawai/Asuraansi Kesehatan Sosial (ASKES)/Badan Penyelenggara Jaminan Sosial (BPJS) Administrasi pendaftaran,1,1,Terbatas,Musnah
+,KP.08.02 Bantuan Sosial ,1,1,Biasa/Terbuka,Musnah
+,"KP.08.03 Rekreasi, olah raga, dan kesenian",2,3,Biasa/Terbuka,Musnah
+,KP.08.04 Organisasi non kedinasan pegawai,2,3,Biasa/Terbuka,Musnah
+,KP.09 Perselisihan/Sengketa Kepegawaian,2,3,Terbatas,Musnah
+,KP.10 Pemberhentian Pegawai,2,3,Terbatas,Musnah
+,KP.11 Pemberhentian karena Pensiun Pegawai/Janda/Duda dan PNS yang Tewas,2,3,Terbatas,Musnah
+,KP.12 Berkas Perseorangan Pegawai ASN PNS,1,9,Terbatas,Musnah
+,KP.13 Berkas Perseorangan Pejabat Eselon I,1,9,Rahasia,Permanen
+,KP.14 Berkas Perseorangan Pegawai P3K/Non ASN,1,4,Rahasia,Musnah
+,KP.15 Berkas Perseorangan Pegawai TNI yang Dikaryakan,1,4,Rahasia,Musnah
+,DL PENDIDIKAN DAN PELATIHAN,,,,
+,DL.00 Perencanaan Diklat,,,,
+,DL.00.00 Analisis kebutuhan diklat,1,2,Biasa/Terbuka,Musnah
+,DL.00.01 Program kediklatan tahunan,1,2,Biasa/Terbuka,Musnah
+,DL.00.02 Kurikulum dan silabus diklat,1,1,Biasa/Terbuka,Permanen
+,DL.00.03 Modul/materi/bahan ajar,2,3,Biasa/Terbuka,Musnah
+,DL.00.04 Koordinasi penyelenggaraan diklat,1,1,Biasa/Terbuka,Musnah
+,DL.01 Penyelenggaraan Diklat,,,,
+,DL.01.00 Diklat manajemen dan kepemimpinan,2,3,Biasa/Terbuka,Musnah
+,DL.01.01 Diklat fungsional,2,3,Biasa/Terbuka,Musnah
+,DL.01.02 Diklat teknis,2,3,Biasa/Terbuka,Musnah
+,DL.01.03 Diklat kerja sama,2,3,Biasa/Terbuka,Musnah
+,DL.02 Evaluasi Diklat,,,Biasa/Terbuka,
+,DL.02.00 Evaluasi penyelenggara  diklat,1,2,Biasa/Terbuka,Musnah
+,DL.02.01 Evaluasi widyaiswara,1,2,Biasa/Terbuka,Musnah
+,DL.02.02 Evaluasi peserta/alumni diklat,1,2,Biasa/Terbuka,Musnah
+,DL.03 Akreditasi lembaga diklat,2,3,Biasa/Terbuka,Permanen
+,DL.04 Data Penyelenggaraan Diklat,,,Biasa/Terbuka,
+,DL.04.00 Data lembaga penyelenggara kerja sama diklat,2,3,Biasa/Terbuka,Musnah
+,DL.04.01 Data prasarana diklat,2,3,Biasa/Terbuka,Musnah
+,DL.04.02 Data sarana diklat,2,3,Biasa/Terbuka,Musnah
+,DL.04.03 Data pengelola diklat,2,3,Biasa/Terbuka,Musnah
+,DL.04.04 Data penyelenggaraan diklat,2,3,Biasa/Terbuka,Musnah
+,DL.04.05 Data widyaiswara,2,3,Biasa/Terbuka,Musnah
+,DL.04.06Data program diklat,2,3,Biasa/Terbuka,Musnah
+,DL.04.07 Data peserta diklat,2,3,Biasa/Terbuka,Musnah
+,DL.04.08 Salinan STTPL/Sertifikat Kelulusan,2,3,Biasa/Terbuka,Permanen
+,DL.05 Pendidikan Formal S2/S3,2,3,Biasa/Terbuka,Musnah
+,KU KEUANGAN,,,,
+,KU.00 Pelaksanaan Anggaran,,,,
+,KU.00.00 Rencana anggaran biaya,2,8,Biasa/Terbuka,Musnah
+,KU.00.01 Belanja pegawai,2,8,Biasa/Terbuka,Musnah
+,KU.00.02 Pengeluaran belanja barang,2,8,Biasa/Terbuka,Musnah
+,KU.00.03 Belanja barang inventaris/barang modal,2,8,Biasa/Terbuka,Musnah
+,KU.01 Pengelolaan Perbendaharaan,,,,
+,KU.01.00 Perbendaharaan,2,8,Biasa/Terbuka,Musnah
+,"KU,01.01 Pajak",2,8,Biasa/Terbuka,Musnah
+,"KU,01.02 PNBP",2,8,Biasa/Terbuka,Musnah
+,KU.01.03 Pengembalian belanja,2,8,Biasa/Terbuka,Musnah
+,KU.01.04 Pembukuan anggaran,2,8,Terbatas,Musnah
+,KU.02 Verifikasi Anggaran,2,8,Terbatas,Musnah
+,KU.03 Akuntansi dan Pelaporan,,,,
+,KU.03.00 Dokumen akuntansi keuangan,2,8,Terbatas,Musnah
+,KU.03.01 Laporan keuangan tahunan,2,8,Terbatas,Musnah
+,KU.04 Ketatausahaan Keuangan,,,,
+,KU.04.00 Keterangan penghasilan,2,3,Terbatas,Musnah
+,KU.04.01 Surat keterangan pemberhentian pembayaran,2,3,Biasa/Terbatas,Musnah
+,KU.04.02 Pinjaman,2,3,Terbatas,Musnah
+,KU.04.03 Tabungan Perumahan (TAPERUM),2,3,Terbatas,Musnah
+,KU.04.04 Iuran keanggotaan organisasi,2,3,Biasa/Terbatas,Musnah
+,KU.05 Bantuan/Hibah/Pinjaman Luar Negeri,2,5,Terbatas,Permanen
+,KU.06 Sistem Akuntansi Instansi (SAI) ,,,,
+,KU.06.00 Berita Acara Rekonsiliasi (BAR),1,4,Terbatas,Musnah
+,KU.06.01 Register Transaksi Harian (RTH),1,4,Terbatas,Musnah
+,KU.06.02 Laporan realisasi SAI bulanan/triwulan/semester,1,2,Terbatas,Musnah
+,KU.07 Pertanggungjawaban Keuangan Negara,,,,
+,KU.07.00 Penyelesaian Kerugian Keuangan Negara,2,8,Terbatas,Musnah
+,PL PERLENGKAPAN,,,,
+,"PL.00 Rencana Pengadaan (Pengadaan Barang, Pekerjaan Konstruksi, dan Jasa Konstruksi)",1,2,Biasa/Terbuka,Musnah
+,PL.01 Pemilihan Penyedia,,,,
+,PL.01.00 Persiapan pemilihan penyedia,2,3,Biasa/Terbuka,Musnah
+,PL.01.01 Pemilihan penyedia barang/jasa pengadaan langsung,2,3,Biasa/Terbuka,Musnah
+,PL.01.02 E-purchasing dan e-catalog,2,3,Biasa/Terbuka,Musnah
+,PL.01.03 Pelaksanaan kontrak tender/penunjukan langsung,2,3,Biasa/Terbuka,Musnah
+,PL.01.04 Swakelola,2,3,Biasa/Terbuka,Musnah
+,PL.02 Pengelolaan Barang Milik Negara,,,,
+,PL.02.00 Penatausahaan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.01 Inventarisasi BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.02 Pendistribusian BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.03 Penetapan status penggunaan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.04 Pemeliharaan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.05 Pemanfaatan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.06 Pemindahtanganan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.07 Penghapusan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.08 Pengamanan/pengawasan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.02.09 Pelaporan BMN,2,3,Biasa/Terbuka,Musnah
+,PL.03 Bukti-bukti Kepemilikan Aset,1,4,Biasa/Terbuka,Musnah
+,TU KETATAUSAHAAN,,,,
+,TU.00 Keprotokolan,,,,
+,"TU.00.00 Upacara kedinasan (upacara bendera, upacara hari besar, upacara pelantikan dan serah terima jabatan, dan peresmian)",2,3,Biasa/Terbuka,Musnah
+,TU.00.01 Kunjungan kedinasan,2,3,Biasa/Terbuka,Musnah
+,TU.00.02 Agenda kegiatan pimpinan  ,2,3,Terbatas,Musnah
+,TU.00.03 Daftar nama dan alamat pejabat ,1,1,Terbatas,Musnah
+,TU.01 Perjalanan dinas Pimpinan,,,,
+,TU.01.00 Perjalanan dinas dalam negeri,1,2,Terbatas,Musnah
+,TU.01.01 Perjalanan dinas luar negeri,1,2,Terbatas,Musnah
+,TU.02 Penyelenggaraan Rapat,,,,
+,TU.02.00 Penyelenggaraan Rapat Pimpinan,1,2,Biasa/Terbuka,Permanen
+,TU.02.01 Penyelenggaraan Rapat Koordinasi,1,2,Biasa/Terbuka,Permanen
+,TU.02.02 Penyelenggaraan Rapat Staf,1,2,Biasa/Terbuka,Permanen
+,RT KERUMAHTANGGAAN,,,,
+,"RT.00 Pengurusan Penggunaan Sarana Telekomunikasi: Telepon, Teleks, Televisi Kabel, Internet",1,1,Biasa/Terbuka,Musnah
+,"RT.01 Pengurusan Penggunaan Fasilitas Kantor: Ruangan, Gedung, Wisma, Rumah Dinas, Rumah Tahanan, Kendaraan, dan Fasilitas Kantor Lainnya",1,1,Biasa/Terbuka,Musnah
+,RT.02 Penyediaan Konsumsi dan Akomodasi,1,1,Biasa/Terbuka,Musnah
+,RT.03 Pengurusan Kendaraan Dinas,,,,
+,RT.03.00 Pengurusan surat-surat kendaraan dinas,1,1,Biasa/Terbuka,Musnah
+,RT.03.01 Pemeliharaan dan perbaikan kendaraan dinas,1,1,Biasa/Terbuka,Musnah
+,RT.03.02 Pengurusan kehilangan dan masalah kendaraan dinas,2,3,Biasa/Terbuka,Musnah
+,RT.04 Pemeliharaan Gedung dan Taman,,,,
+,RT.04.00 Berkas pemeliharaan pertamanan/landscaping,1,1,Biasa/Terbuka,Musnah
+,RT.04.01 Berkas pelaksanaan penghijauan di lingkungan gedung/kantor,1,1,Biasa/Terbuka,Musnah
+,RT.04.02 Berkas perbaikan gedung,1,1,Biasa/Terbuka,Musnah
+,RT.04.03 Berkas perbaikan rumah dinas/wisma/rumah tahanan,1,1,Biasa/Terbuka,Musnah
+,RT.04.04 Berkas pemeliharaan kebersihan gedung dan taman,1,1,Biasa/Terbuka,Musnah
+,"RT.05 Pengelolaan Jaringan Listrik, Air, Telepon, dan Komputer",,,,
+,RT.05.00 Perbaikan/pemeliharaan,2,3,Biasa/Terbuka,Musnah
+,RT.05.01 Pemasangan,2,3,Biasa/Terbuka,Musnah
+,"RT.06 Pakaian Dinas Pegawai, Petugas Keamanan, Petugas Kebersihan, dan Pegawai Lainnya",1,1,Biasa/Terbuka,Musnah
+,KM KEAMANAN DAN KETERTIBAN,,,,
+,KM.00 Keamanan,,,,
+,KM.00.00 Pengawalan pimpinan,1,1,Biasa/Terbuka,Musnah
+,KM.00.01 Petugas pengamanan,1,1,Biasa/Terbuka,Musnah
+,KM.00.02 Laporan kejadian gangguan keamanan,2,3,Biasa/Terbuka,Musnah
+,KM.00.03 Bantuan Pengamanan,1,1,Biasa/Terbuka,Musnah
+,KM.00.04 Penggunaan Senjata,1,1,Biasa/Terbuka,Musnah
+,KM.01 Ketertiban,,,,
+,KM.01.00 Pengelolaan parkir,1,1,Biasa/Terbuka,Musnah
+,KM.01.01 Ketertiban lingkungan,1,1,Biasa/Terbuka,Musnah
+,KA.00 Penciptaan Arsip,,,,
+,KA.00.00 Pengelolaan surat masuk,2,3,Terbatas,Musnah
+,KA.00.01 Pengelolaan surat keluar,2,3,Terbatas,Musnah
+,KA.01 Pemeliharaan arsip ,,,,
+,KA.01.00 Pemberkasan,1,1,Terbatas,Musnah
+,KA.01.01 Penataan arsip,1,1,Terbatas,Musnah
+,KA.01.02 Penyimpanan  ,1,4,Terbatas,Musnah
+,KA.01.03 Alih media arsip,1,1,Terbatas,Musnah
+,KA.01.04 Akses penggunaan arsip,1,4,Biasa/Terbuka,Musnah
+,KA.02 Pengelolaan Arsip Vital dan Arsip Terjaga,1,4,Terbatas,Permanen
+,KA.03 Penyusutan Arsip ,,,,
+,KA.03.00 Pemindahan arsip inaktif,1,2,Terbatas,Musnah
+,KA.03.01 Pemusnahan arsip ,2,3,Terbatas,Permanen
+,KA.03.02 Penyerahan arsip statis,2,3,Terbatas,Permanen
+,"KA.04 Pembuatan Sistem Kearsipan (Tata Naskah Dinas (TND), Klasifikasi, Jadwal Retensi Arsip (JRA), Sistem Klasifikasi Keamanan dan Akses Arsip Dinamis (SKKAD)",2,3,Biasa/Terbuka,Permanen
+,KA.05 Pembinaan Kearsipan,,,,
+,KA.05.00 Bimbingan teknis  kearsipan/bimbingan konsultasi kearsipan,2,3,Biasa/Terbuka,Musnah
+,KA.05.01 Supervisi/pengawasan kearsipan,2,3,Biasa/Terbuka,Musnah
+,KA.05.02 Monitoring,2,3,Biasa/Terbuka,Musnah
+,PW PENGAWASAN,,,,
+,PW.00 Program Kerja Pengawasan Tahunan,2,3,Terbatas,Musnah
+,PW.01 Audit/Pengawasan Internal,,,,
+,PW.01.00 Audit keuangan,1,4,Terbatas,Musnah
+,PW.01.01 Audit kinerja,1,4,Terbatas,Musnah
+,PW.02 Reviu,,,,
+,PW.02.00 Reviu anggaran,2,8,Terbatas,Musnah
+,PW.02.01 Reviu kinerja,2,8,Terbatas,Musnah
+,PW.02.02 Reviu barang milik negara,2,8,Terbatas,Musnah
+,PW.03 Pemantauan,,,,
+,PW.03.00 Pemantauan kegiatan,2,3,Terbatas,Musnah
+,PW.03.01 Pemantauan penyelesaian tuntutan ganti rugi,2,3,Terbatas,Musnah
+,PW.03.02 Pemantauan penyelesaian tindak lanjut hasil pengawasan ,2,3,Terbatas,Musnah
+,PW.04 Pemeriksaan,,,,
+,PW.04.00 Pemeriksaan  terkait dugaan disiplin,2,3,Terbatas,Musnah
+,PW.04.01 Inspeksi umum,2,3,Terbatas,Musnah
+,PW.04.02 Inspeksi khusus,2,3,Terbatas,Musnah
+,PW.04.03 Inspeksi pimpinan,2,3,Terbatas,Musnah
+,"PW.04.04 Pendampingan pengawasan eksternal (Badan Pemeriksa Keuangan, Badan Pengawasan Keuangan dan Pembangunan, dan Komisi Pemberantasan Korupsi)",2,3,Terbatas,Musnah
+,PW.05 Gratifikasi dan Whistle Blowing System (WBS),1,4,Biasa/Terbuka,Musnah
+,PW.06 Pengaduan Masyarakat (Sistem Perbendaharaan dan Anggaran Negara (SPAN) Lapor/Satuan Tugaas Sapu Bersih Pungutan Liar (SABER PUNGLI)),2,3,Biasa/Terbuka,Musnah
+,PW.07 Laporan Hasil Kekayaan Pejabat Negara (LHKPN),2,3,Biasa/Terbuka,Musnah
+,PW.08 Benturan Kepentingan/Conflict of Interest (CoI),1,4,Biasa/Terbuka,Musnah
+,"PW.09 Wilayah Bebas dari Korupsi (WBK), Wilayah Birokrasi dan Bersih Melayani (WBBM), dan Zona Integritas",1,4,Biasa/Terbuka,Musnah
+,PW.10 Kegiatan Pengawasan Lainnya,,,,
+,PW.10.00 Sosialisasi pengawasan,1,1,Biasa/Terbuka,Musnah
+,"PW.10.01 Bimbingan, konsultasi, dan asistensi pengawasan",1,1,Biasa/Terbuka,Musnah
+,PW.10.02 Pendidikan dan pelatihan pengawasan,1,1,Biasa/Terbuka,Musnah
+,PW.10.03 Pemaparan hasil pengawasan,1,1,Terbatas,Musnah
+,PW.10.04 Keikutsertaan dalam Forum Aparat Pengawas Internal Pemerintah (APIP),1,1,Biasa/Terbuka,Musnah
+,PW.10.05 Satuan Pengawasan Intern (SPI)/Sistem Pengendalian Intern Pemerintah (SPIP),1,1,Biasa/Terbuka,Musnah
+,DI DATA DAN INFORMASI,,,,
+,DI.00 Rencana Strategis/Master Plan Pembangunan Sistem Informasi (SIM),1,4,Biasa/Terbuka,Permanen
+,DI.01 Rencana Pembangunan dan Pengembangan Teknologi Informatika (TI),1,4,Biasa/Terbuka,Permanen
+,DI.02 Rancang Bangun Sistem/Desain Sistem Informasi dan Komunikasi,1,4,Terbatas,Permanen
+,DI.03 Dokumentasi Arsitektur ,,,,
+,DI.03.00 Aplikasi,1,4,Terbatas,Permanen
+,DI.03.01 Infrastruktur dan keamanan,1,4,Terbatas,Permanen
+,DI.03.02 Penambahan storage,1,4,Terbatas,Musnah
+,DI.03.03 Pembuatan konten media ,1,4,Terbatas,Musnah
+,"DI.04 Dokumentasi Implementasi, Operasional, dan Pemeliharaan",,,,
+,"DI.04.00 Implementasi, operasional, dan pemeliharaan aplikasi",1,4,Biasa/Terbuka,Permanen
+,"DI.04.01 Implementasi, operasional, dan pemeliharaan aplikasi",1,4,Biasa/Terbuka,Permanen
+,DI.04.02 Implementasi aplikasi komunikasi/meeting,1,4,Biasa/Terbuka,Musnah
+,DI.05 Perekaman dan Pemutakhiran Data,2,3,Biasa/Terbuka,Permanen
+,DI.06 Migrasi dan Integrasi Data/Aplikasi,,,,
+,DI.06.00 Jaringan dan server,1,4,Biasa/Terbuka,Permanen
+,DI.06.01 Data dan aplikasi,1,4,Biasa/Terbuka,Permanen
+,DI.06.02 Evaluasi teknologi informasi,1,4,Biasa/Terbuka,Permanen
+,DI.07 Keamanan Data,,,,
+,DI.07.00 Backup data,2,3,Biasa/Terbuka,Permanen
+,DI.07.01 Antivirus,2,3,Biasa/Terbuka,Permanen
+,DI.07.02 Firewall,2,3,Biasa/Terbuka,Permanen
+,DI.08 Hardware,2,3,Biasa/Terbuka,Permanen
+,DI.09 Dokumen Hosting dan Domain,2,3,Biasa/Terbuka,Musnah
+,DI.10 Pengumpulan dan Pengolah Data,1,2,Biasa/Terbuka,Musnah
+,DI.11 Analisis Data,1,2,Terbatas,Musnah
+,DI.12 Penyajian dan Pemanfaatan Data,1,2,Biasa/Terbuka,Musnah
+,DI.13 Data Base,2,3,Terbatas,Permanen
+,DI.14 Keanggotaan/Langganan/Jaringan,2,3,Biasa/Terbuka,Musnah
+,PT PERPUSTAKAAN,,,,
+,PT.00 Penyimpanan Deposit Bahan Pustaka,,,,
+,PT.00.00 Penerimaan koleksi bahan pustaka deposit,2,3,Biasa/Terbuka,Musnah
+,PT.00.01 Penyerahan karya cetak/karya rekam bahan pustaka,2,3,Biasa/Terbuka,Musnah
+,PT.00.02 Pengelolaan deposit bahan pustaka,2,3,Biasa/Terbuka,Musnah
+,PT.01 Pengadaan Bahan Pustaka,,,,
+,PT.01.00 Seleksi bahan pustaka,1,2,Biasa/Terbuka,Musnah
+,PT.01.01 Pemesanan bahan pustaka,1,2,Biasa/Terbuka,Musnah
+,PT.01.02 Penerimaan bahan pustaka,1,2,Biasa/Terbuka,Musnah
+,PT.02 Pengolahan Bahan Pustaka,,,,
+,PT.02.00 Inventarisasi bahan pustaka,1,3,Biasa/Terbuka,Musnah
+,PT.02.01 Pengelolaan bahan pustaka surplus,1,2,Biasa/Terbuka,Musnah
+,PT.03 Layanan Bahan Pustaka dan Informasi,,,,
+,PT.03.00 Layanan peminjaman dan pengembalian,2,2,Biasa/Terbuka,Permanen
+,PT.03.01 Layanan pembuatan e-kliping,2,2,Biasa/Terbuka,Musnah
+,PT.03.02 Layanan penelusuran informasi,2,2,Biasa/Terbuka,Musnah
+,"PT.03.03 Data dan statistik anggota, pengunjung, dan peminjaman bahan pustaka",2,2,Biasa/Terbuka,Permanen
+,PT.04 Pemeliharaan Bahan Pustaka,1,2,Biasa/Terbuka,Musnah
+,KY KESEHATAN YUSTISIAL,,,,
+,"KY.00 Dewan, Badan, dan Komite Kesehatan",,,,
+,KY.00.00 Dewan Pengawas,2,3,Terbatas,Musnah
+,KY.00.01 Dewan pembina,2,3,Terbatas,Musnah
+,KY.00.02 Badan koordinasi pendidikan,2,3,Terbatas,Musnah
+,KY.00.03 Komite,2,3,Terbatas,Musnah
+,KY.01 Tenaga Kesehatan,,,,
+,KY.01.00 Medik dan keperawatan ,2,3,Terbatas,Musnah
+,KY.01.01 Non medik,2,3,Terbatas,Musnah
+,KY.01.02 Dokter tamu,2,3,Terbatas,Musnah
+,KY.02 Penunjang Medik,,,,
+,KY.02.00 Laboratorium,2,3,Terbatas,Musnah
+,KY.02.01 Laboratorium,2,3,Terbatas,Musnah
+,KY.02.02 Fisiotherapi,2,3,Terbatas,Musnah
+,KY.02.03 Ambulans,2,3,Terbatas,Musnah
+,KY.02.04 Penunjang medik lainnya,2,3,Terbatas,Musnah
+,KY.03 Rekam Medik,5,1,Rahasia,Musnah
+,KY.04 Farmasi,1,1,Terbatas,Musnah
+,KY.05 Kegiatan Akademik dan Riset Kesehatan Yustisial,2,3,Terbatas,Musnah
+,KY.06,,,,
+,KY.06.00 Rujukan fasilitas kesehatan,2,3,Terbatas,Musnah
+,KY.06.01 Asuransi,1,1,Terbatas,Musnah
+,KY.06.02 Pemulasaran jenazah,1,1,Terbatas,Musnah
+,KY.07 Legalitas Tenaga Kesehatan,,,,
+,KY.07.00 Surat Tanda Registrasi (STR) tenaga kesehatan,1,1,Terbatas,Musnah
+,KY.07.01 Surat izin praktek profesi tenaga kesehatan,1,1,Terbatas,Musnah
+,KY.08 Laporan Kegiatan Kesehatan Yustisial,,,,
+,KY.08.00 Laporan co assistant (coass),2,3,Terbatas,Musnah
+,KY.08.01 Laporan kelahiran,1,1,Terbatas,Musnah
+,KY.08.02 Laporan kematian,2,3,Terbatas,Musnah
+,KY.08.03 Laporan kejadian kecelakaan,1,1,Terbatas,Musnah
+,KY.08.04 Laporan perkembangan pasien,1,1,Terbatas,Musnah
+,KY.08.05 Laporan kasus terbanyak,2,3,Terbatas,Musnah
+,KY.08.06 Laporan kasus khusus,2,3,Terbatas,Musnah
+,"KY.08.07 Laporan intern kesehatan yustisial (tidak perlu ada pemisahan antara laporan intern dan ekstern), bisa dijadikan laporan rutin",2,3,Terbatas,Musnah
+,KY.08.08 Laporan ekstern kesehatan yustisial,5,5,Terbatas,Musnah

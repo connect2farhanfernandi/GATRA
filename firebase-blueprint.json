@@ -1,0 +1,322 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Profil pengguna terautentikasi GATRA 2.0 beserta unit kerja (Bidang) dan hak akses (Role).",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 254
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "bidang": {
+          "type": "string",
+          "enum": ["", "pembinaan", "datun", "papbb", "pidum", "pidsus", "intelijen"]
+        },
+        "role": {
+          "type": "string",
+          "enum": ["admin", "staf", "pimpinan"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Aktif", "Pending", "Diblokir"]
+        },
+        "lastLogin": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "email", "displayName", "bidang", "role", "status", "lastLogin", "createdAt", "updatedAt"]
+    },
+    "SystemBootstrap": {
+      "title": "SystemBootstrap",
+      "description": "Dokumen pengunci atomik untuk menetapkan pengguna pertama sebagai Admin.",
+      "type": "object",
+      "properties": {
+        "firstAdminUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["firstAdminUid", "createdAt"]
+    },
+    "JraItem": {
+      "title": "JraItem",
+      "description": "Entri Master Pedoman Jadwal Retensi Arsip (JRA) Substantif dan Fasilitatif.",
+      "type": "object",
+      "properties": {
+        "nomor": { "type": "number" },
+        "kodeKlasifikasi": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "uraian": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "retensiAktif": { "type": "number" },
+        "retensiInaktif": { "type": "number" },
+        "keteranganAkhir": { "type": "string", "enum": ["Musnah", "Permanen"] },
+        "bidang": { "type": "string", "enum": ["pembinaan", "datun", "papbb", "pidum", "pidsus", "intelijen"] },
+        "createdByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nomor", "kodeKlasifikasi", "uraian", "retensiAktif", "retensiInaktif", "keteranganAkhir", "bidang", "createdByUid", "createdAt", "updatedAt"]
+    },
+    "ArchiveItem": {
+      "title": "ArchiveItem",
+      "description": "Data arsip utama Kejaksaan Negeri Grobogan beserta lokasi fisik, retensi JRA, dan jejak audit.",
+      "type": "object",
+      "properties": {
+        "nomorBerkas": { "type": "string", "maxLength": 60 },
+        "nomorItem": { "type": "string", "maxLength": 60 },
+        "kodeKlasifikasi": { "type": "string", "maxLength": 300 },
+        "uraian": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "kurunWaktu": { "type": "number" },
+        "tingkatPerkembangan": { "type": "string", "enum": ["Asli", "Fotokopi", "Salinan", "Tembusan"] },
+        "jumlah": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "filingCabinet": { "type": "string", "maxLength": 60 },
+        "laci": { "type": "string", "maxLength": 60 },
+        "folder": { "type": "string", "maxLength": 60 },
+        "klasifikasiKeamanan": { "type": "string", "enum": ["Biasa/Terbuka", "Biasa", "Terbatas", "Rahasia", "Sangat Rahasia"] },
+        "kondisiFisik": { "type": "string", "enum": ["Baik", "Rusak Ringan", "Rusak Berat", "Berjamur"] },
+        "penataan": { "type": "string", "enum": ["Bundel", "Jilid", "Dalam Folder", "Diikat", "Dalam Map", "Boks"] },
+        "retensiAktif": { "type": "number" },
+        "retensiInaktif": { "type": "number" },
+        "keteranganAkhir": { "type": "string", "enum": ["Musnah", "Permanen"] },
+        "dasarRetensi": { "type": "string", "maxLength": 300 },
+        "tanggalInput": { "type": "string", "minLength": 1, "maxLength": 60 },
+        "tanggalInputISO": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "diinputOleh": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "nomorBoks": { "type": "string", "maxLength": 60 },
+        "catatanRecordCenter": { "type": "string", "maxLength": 1000 },
+        "keterangan": { "type": "string", "maxLength": 1000 },
+        "nomorSuratAnri": { "type": "string", "maxLength": 120 },
+        "tanggalPersetujuanAnri": { "type": "string", "maxLength": 30 },
+        "nomorBaPemusnahan": { "type": "string", "maxLength": 120 },
+        "tanggalPemusnahan": { "type": "string", "maxLength": 30 },
+        "metodePemusnahan": {
+          "type": "string",
+          "enum": ["Peleburan / Pulping", "Pencacahan", "Pembakaran", "Lainnya"]
+        },
+        "bidang": { "type": "string", "enum": ["pembinaan", "datun", "papbb", "pidum", "pidsus", "intelijen"] },
+        "createdByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "createdByName": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "updatedByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "updatedByName": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "nomorBerkas", "nomorItem", "kodeKlasifikasi", "uraian", "kurunWaktu",
+        "tingkatPerkembangan", "jumlah", "filingCabinet", "laci", "folder",
+        "klasifikasiKeamanan", "kondisiFisik", "penataan", "retensiAktif",
+        "retensiInaktif", "keteranganAkhir", "dasarRetensi", "tanggalInput",
+        "nomorBoks", "keterangan", "bidang", "createdByUid", "createdByName",
+        "updatedByUid", "updatedByName", "createdAt", "updatedAt"
+      ]
+    },
+    "LoanItem": {
+      "title": "LoanItem",
+      "description": "Register peminjaman arsip antar unit atau pegawai.",
+      "type": "object",
+      "properties": {
+        "nomor": { "type": "number" },
+        "tanggalPinjam": { "type": "string", "minLength": 8, "maxLength": 30 },
+        "kodeKlasifikasi": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "uraianBerkas": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "namaPeminjam": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "bidang": { "type": "string", "enum": ["pembinaan", "datun", "papbb", "pidum", "pidsus", "intelijen"] },
+        "targetKembali": { "type": "string", "minLength": 8, "maxLength": 30 },
+        "realisasiKembali": { "type": "string", "maxLength": 30 },
+        "keterangan": { "type": "string", "maxLength": 1000 },
+        "createdByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nomor", "tanggalPinjam", "kodeKlasifikasi", "uraianBerkas", "namaPeminjam", "bidang", "targetKembali", "realisasiKembali", "keterangan", "createdByUid", "createdAt", "updatedAt"]
+    },
+    "LibraryItem": {
+      "title": "LibraryItem",
+      "description": "Pustaka dan tautan materi kearsipan untuk seluruh pegawai.",
+      "type": "object",
+      "properties": {
+        "judul": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "kategori": { "type": "string", "enum": ["Pedoman Klasifikasi Arsip", "JRA", "SOP Kearsipan", "E-Book/Modul"] },
+        "deskripsi": { "type": "string", "maxLength": 1000 },
+        "url": { "type": "string", "minLength": 8, "maxLength": 1000 },
+        "createdByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["judul", "kategori", "deskripsi", "url", "createdByUid", "createdAt", "updatedAt"]
+    },
+    "VitalArchiveItem": {
+      "title": "VitalArchiveItem",
+      "description": "Daftar arsip vital Kejaksaan Negeri Grobogan beserta jangka simpan, metode perlindungan, dan lokasi simpan.",
+      "type": "object",
+      "properties": {
+        "nomor": { "type": "number" },
+        "bidang": { "type": "string", "enum": ["pembinaan", "datun", "papbb", "pidum", "pidsus", "intelijen"] },
+        "kodeKlasifikasi": { "type": "string", "maxLength": 300 },
+        "uraian": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "kurunWaktu": { "type": "number" },
+        "mediaSimpan": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "jumlah": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "jangkaSimpan": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "metodePerlindungan": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "lokasiSimpan": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "tingkatKerawanan": { "type": "string", "enum": ["Sangat Vital", "Vital", ""] },
+        "tautanBackup": { "type": "string", "maxLength": 1000 },
+        "keterangan": { "type": "string", "maxLength": 1000 },
+        "createdByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "createdByName": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "updatedByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "updatedByName": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "nomor", "bidang", "uraian", "kurunWaktu",
+        "mediaSimpan", "jumlah", "jangkaSimpan", "metodePerlindungan", "lokasiSimpan",
+        "keterangan",
+        "createdByUid", "createdByName", "updatedByUid", "updatedByName",
+        "createdAt", "updatedAt"
+      ]
+    },
+    "DokumenKearsipan": {
+      "title": "DokumenKearsipan",
+      "description": "Arsip dokumen bukti pelaksanaan kearsipan satuan kerja yang telah disahkan (Berita Acara, Surat Persetujuan ANRI, Daftar Arsip Disahkan, SK).",
+      "type": "object",
+      "properties": {
+        "judul": { "type": "string", "minLength": 1, "maxLength": 250 },
+        "kategori": {
+          "type": "string",
+          "enum": [
+            "BA Pemindahan Arsip",
+            "BA & Laporan Pemusnahan Arsip",
+            "Surat Persetujuan ANRI",
+            "BA Penyerahan Arsip Statis",
+            "Daftar Arsip Disahkan",
+            "SK / Laporan Kearsipan Lainnya"
+          ]
+        },
+        "nomorSurat": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "tanggalDokumen": { "type": "string", "minLength": 8, "maxLength": 30 },
+        "bidangTerkait": {
+          "type": "string",
+          "enum": ["pembinaan", "datun", "papbb", "pidum", "pidsus", "intelijen", "lintas_bidang"]
+        },
+        "tipeLampiran": { "type": "string", "enum": ["gdrive", "upload"] },
+        "urlGoogleDrive": { "type": "string", "minLength": 8, "maxLength": 1000 },
+        "fileName": { "type": "string", "minLength": 1, "maxLength": 255 },
+        "fileMimeType": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "fileSize": { "type": "number" },
+        "fileBase64": { "type": "string", "minLength": 1, "maxLength": 1030000 },
+        "createdByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "createdByName": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "judul", "kategori", "nomorSurat", "tanggalDokumen",
+        "bidangTerkait", "tipeLampiran",
+        "createdByUid", "createdByName", "createdAt", "updatedAt"
+      ]
+    },
+    "BidangStatSummary": {
+      "title": "BidangStatSummary",
+      "description": "Rekap agregat jumlah berkas arsip per status daur hidup untuk satu bidang (tanpa judul/uraian arsip).",
+      "type": "object",
+      "properties": {
+        "aktif": { "type": "number" },
+        "inaktif": { "type": "number" },
+        "usulMusnah": { "type": "number" },
+        "statis": { "type": "number" },
+        "musnah": { "type": "number" },
+        "total": { "type": "number" }
+      },
+      "required": ["aktif", "inaktif", "usulMusnah", "statis", "musnah", "total"]
+    },
+    "StatistikSatker": {
+      "title": "StatistikSatker",
+      "description": "Ringkasan statistik agregat global per bidang pada dokumen metadata/statistik_satker.",
+      "type": "object",
+      "properties": {
+        "pembinaan": { "$ref": "#/entities/BidangStatSummary" },
+        "datun": { "$ref": "#/entities/BidangStatSummary" },
+        "papbb": { "$ref": "#/entities/BidangStatSummary" },
+        "pidum": { "$ref": "#/entities/BidangStatSummary" },
+        "pidsus": { "$ref": "#/entities/BidangStatSummary" },
+        "intelijen": { "$ref": "#/entities/BidangStatSummary" },
+        "updatedByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["updatedByUid", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Profil pengguna, unit kerja (bidang), dan peran (admin, staf, pimpinan)."
+    },
+    "/system/{docId}": {
+      "schema": { "$ref": "#/entities/SystemBootstrap" },
+      "description": "Dokumen pengunci bootstrap Admin pertama."
+    },
+    "/metadata/{docId}": {
+      "schema": { "$ref": "#/entities/StatistikSatker" },
+      "description": "Dokumen agregat statistik kearsipan global satuan kerja (metadata/statistik_satker)."
+    },
+    "/jra_master/{jraId}": {
+      "schema": { "$ref": "#/entities/JraItem" },
+      "description": "Master Pedoman Jadwal Retensi Arsip Substantif dan Fasilitatif."
+    },
+    "/archives/{archiveId}": {
+      "schema": { "$ref": "#/entities/ArchiveItem" },
+      "description": "Daftar utama arsip lintas 6 bidang Kejaksaan Negeri Grobogan."
+    },
+    "/loans/{loanId}": {
+      "schema": { "$ref": "#/entities/LoanItem" },
+      "description": "Register peminjaman arsip."
+    },
+    "/library_items/{itemId}": {
+      "schema": { "$ref": "#/entities/LibraryItem" },
+      "description": "Katalog pustaka materi dan SOP kearsipan."
+    },
+    "/vital_archives/{vitalId}": {
+      "schema": { "$ref": "#/entities/VitalArchiveItem" },
+      "description": "Inventaris Data Arsip Vital Kejaksaan Negeri Grobogan."
+    },
+    "/dokumen_kearsipan/{docId}": {
+      "schema": { "$ref": "#/entities/DokumenKearsipan" },
+      "description": "Repositori dokumen bukti pelaksanaan kearsipan yang telah disahkan/ditandatangani."
+    }
+  }
+}
