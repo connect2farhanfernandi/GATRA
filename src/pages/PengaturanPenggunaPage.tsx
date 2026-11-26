@@ -10,6 +10,7 @@ import { useAuth } from '../context/AuthContext';
 import { useArchiveData } from '../context/ArchiveDataContext';
 import { useToast } from '../components/Toast';
 import { BidangBadge } from '../components/BidangBadge';
+import { DatabaseBackupPanel } from '../components/DatabaseBackupPanel';
 import { BidangId, UserProfile, UserRole, UserStatus } from '../types/archive';
 
 function formatLastLogin(val: unknown): string {
@@ -107,6 +108,9 @@ export function PengaturanPenggunaPage() {
 
   return (
     <div className="space-y-6">
+      {/* Cadangan & Pemulihan Database (Khusus Admin) */}
+      <DatabaseBackupPanel />
+
       {/* Manajemen Pengguna */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
         <div className="p-5 border-b border-slate-200 space-y-4">
